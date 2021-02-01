@@ -1,0 +1,45 @@
+<br><br>
+<br><br>
+<div class="row justify-content-center">
+  <div class="col-md-4 register-employee">
+    <!-- form card register -->
+    <div class="card card-outline-secondary">
+      <div class="card-header">
+        <h3 class="mb-0">Create Employee</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onCreateEmployer()">
+
+          <div class="form-group">
+            <label for="inputName">Name</label>
+            <input class="form-control" id="inputName" type="text"  [(ngModel)]="employer.name" formControlName="name" name="name" [ngClass]="{'is-invalid':submitted && f.name.errors}">
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail3">Email</label>
+            <input class="form-control" type="text" id="inputEmail3" [(ngModel)]="employer.email" formControlName="email" name="email" [ngClass]="{'is-invalid': submitted && f.email.errors}">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.pattern">Email must be a valid email address</div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="inputVerify3">Mobile No</label>
+            <input class="form-control" id="inputVerify3" type="text" name="phoneNumber" [(ngModel)]="employer.phoneNumber" formControlName="phoneNumber" [ngClass]="{'is-invalid': submitted && f.phoneNumber.errors}">
+            <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+              <div *ngIf="f.phoneNumber.errors.required">First Name is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">Ajouter Employer</button>
+          </div>
+        </form>
+      </div>
+    </div><!-- form  -->
+  </div>
+</div>
